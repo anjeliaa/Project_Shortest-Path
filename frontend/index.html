@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Navigasi Cerdas Kampus - Universitas Bengkulu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="header-brand">
+            <div class="logo-wrapper">
+                <i class="fa-solid fa-map-location-dot logo-icon"></i>
+            </div>
+            <div>
+                <h1>Bengkulu University</h1>
+                <p>A* Shortest Path Model</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title"><i class="fa-solid fa-sliders"></i> Konfigurasi Rute</h3>
+            
+            <div class="input-group">
+                <label for="start"><i class="fa-solid fa-circle-dot icon-start"></i> Titik Awal</label>
+                <div class="select-wrapper">
+                    <select id="start"></select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="destination"><i class="fa-solid fa-location-dot icon-dest"></i> Titik Tujuan</label>
+                <div class="select-wrapper">
+                    <select id="destination"></select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="vehicle"><i class="fa-solid fa-route"></i> Moda Transportasi</label>
+                <div class="select-wrapper">
+                    <select id="vehicle">
+                        <option value="walk">Jalan Kaki</option>
+                        <option value="drive">Kendaraan (Motor / Mobil)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn-search" onclick="findRoute()">
+                <i class="fa-solid fa-compass"></i> Kalkulasi Lintasan
+            </button>
+        </div>
+
+        <div class="card metrics-card">
+            <h3 class="card-title"><i class="fa-solid fa-chart-simple"></i> Analisis Model</h3>
+            <div class="metrics-grid">
+                <div class="metric-box box-distance">
+                    <span class="metric-label"><i class="fa-solid fa-arrows-left-right"></i> Jarak</span>
+                    <div id="distance" class="metric-value">-</div>
+                </div>
+                <div class="metric-box box-duration">
+                    <span class="metric-label"><i class="fa-solid fa-clock"></i> Waktu</span>
+                    <div id="duration" class="metric-value">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card dynamic-guide-card">
+            <h3 class="card-title"><i class="fa-solid fa-diamond-turn-right"></i> Panduan Rute</h3>
+            <div id="instructions" class="instructions-container"></div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
